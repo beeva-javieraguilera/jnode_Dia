@@ -1,0 +1,63 @@
+CREATE TABLE SHOWNACA.BDENCU ( 
+--  SQL150B   10   REUSEDLT(*NO) en tabla BDENCU de SHOWNACA ignorado. 
+	NUMENC NUMERIC(6, 0) NOT NULL DEFAULT 0 , 
+	TIEND DECIMAL(5, 0) NOT NULL DEFAULT 0 , 
+	PAIS CHAR(2) CCSID 284 NOT NULL DEFAULT '' , 
+	ENCUEST CHAR(80) CCSID 284 NOT NULL DEFAULT '' , 
+	RESPONS CHAR(80) CCSID 284 NOT NULL DEFAULT '' , 
+	FECHA NUMERIC(8, 0) NOT NULL DEFAULT 0 , 
+	HORINI TIME NOT NULL DEFAULT CURRENT_TIME , 
+	HORFIN TIME NOT NULL DEFAULT CURRENT_TIME , 
+	PTENV CHAR(1) CCSID 284 NOT NULL DEFAULT '' , 
+	MODENC DECIMAL(3, 0) NOT NULL DEFAULT 0 , 
+	VALENC DECIMAL(5, 2) NOT NULL DEFAULT 0 , 
+	MOVIL NUMERIC(1, 0) NOT NULL DEFAULT 0 , 
+	FECCAD NUMERIC(8, 0) NOT NULL DEFAULT 0 , 
+	ESTENC CHAR(80) CCSID 284 NOT NULL DEFAULT '' , 
+	ESTVAL CHAR(80) CCSID 284 NOT NULL DEFAULT '' , 
+	MOTANU CHAR(500) CCSID 284 NOT NULL DEFAULT '' , 
+	DIRDIA CHAR(80) CCSID 284 NOT NULL DEFAULT '' , 
+	PRIMARY KEY( PAIS , NUMENC ) )   
+	RCDFMT RBDENCU    ; 
+  
+LABEL ON TABLE SHOWNACA.BDENCU 
+	IS 'BD Encuestas' ; 
+  
+LABEL ON COLUMN SHOWNACA.BDENCU 
+( NUMENC IS 'Numero              encuesta' , 
+	TIEND IS 'Numero              tienda' , 
+	PAIS IS 'Pais' , 
+	ENCUEST IS 'Encuestador' , 
+	RESPONS IS 'Responsable' , 
+	FECHA IS 'Fecha               encuesta' , 
+	HORINI IS 'Hora                inicio' , 
+	HORFIN IS 'Hora                fin' , 
+	PTENV IS 'PTE.                ENVIO' , 
+	MODENC IS 'Modelo              encuesta' , 
+	VALENC IS 'Valoracion          encuesta' , 
+	MOVIL IS 'Movil' , 
+	FECCAD IS 'Fecha               caducidad' , 
+	ESTENC IS 'Estado              encuesta' , 
+	ESTVAL IS 'Estado              valoraci�n' , 
+	MOTANU IS 'Motivo              anulaci�n' , 
+	DIRDIA IS 'Direcci�n           Dia                 Encuesta' ) ; 
+  
+LABEL ON COLUMN SHOWNACA.BDENCU 
+( NUMENC TEXT IS 'Numero encuesta' , 
+	TIEND TEXT IS 'Numero tienda' , 
+	PAIS TEXT IS 'Pais' , 
+	ENCUEST TEXT IS 'Encuestador' , 
+	RESPONS TEXT IS 'Responsable' , 
+	FECHA TEXT IS 'Fecha encuesta' , 
+	HORINI TEXT IS 'Hora inicio' , 
+	HORFIN TEXT IS 'Hora fin' , 
+	PTENV TEXT IS 'PENDIENTE ENVIO P O BLANCO' , 
+	MODENC TEXT IS 'Modelo encuesta' , 
+	VALENC TEXT IS 'Valoracion encuesta' , 
+	MOVIL TEXT IS 'Movil' , 
+	FECCAD TEXT IS 'Fecha caducidad' , 
+	ESTENC TEXT IS 'Estado encuesta' , 
+	ESTVAL TEXT IS 'Estado valoraci�n' , 
+	MOTANU TEXT IS 'Motivo anulaci�n' , 
+	DIRDIA TEXT IS 'Direcci�n Dia Encuesta' ) ; 
+  

@@ -1,0 +1,61 @@
+#!/usr/bin/node
+var rmdir = require("rmdir-recursive").sync;
+var mkdirp = require("mkdirp");
+
+var fs = require('fs');
+var fse = require('fs-extra')
+//var nfichero = process.argv[2].split("/");
+//nfichero = nfichero[nfichero.length-1];
+nfichero = 'BDENCU.txt'
+
+var lineReader = require('line-reader');
+salida="salida.txt"
+
+lineReader.eachLine(nfichero,function(line,last){
+line2 = line
+palabras = line.split(" ");
+palabras2 = line.split("");
+
+posicion = palabras2.indexOf("(");
+//console.log(posicion);
+if (line2.substring(posicion -5,posicion+1)== " CHAR(") {
+palabras3=line2.split("(");
+cantidad0 =palabras3.slice(1);
+
+cantidad1 = cantidad0.toString().split(")");
+dentrodelchar = cantidad1.shift();
+console.log(dentrodelchar);
+
+// add four numbers here	
+//var array = [1,2,3,4];
+//array.forEach(function(number){
+//console.log(number);
+//})
+
+if (dentrodelchar >0) {
+line = line.replace(" CHAR"," VARCHAR");
+}
+}
+line = line.replace("CCSID 284","");
+console.log(line);
+
+if(line.substring(0,2)=="--") {
+	line="";
+}
+
+if(line.substring(0,5)=="LABEL") {
+	salida="basura.txt"
+}
+ if(palabras2.indexOf(";")>1){
+line=";"
+
+ }
+
+fs.appendFile(salida, line+"\n");
+process.stdout.write(".");
+
+//chero+".txt", line+"\n");
+fse.removeSync('basura.txt');
+})
+
+
